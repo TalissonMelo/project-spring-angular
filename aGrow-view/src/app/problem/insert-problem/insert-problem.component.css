@@ -1,27 +1,22 @@
+.profile-container{
+    width: 100%;
+    max-width: 1180px;
+    padding: 0 30px;
+    margin: 32px auto;
+}
+
+.margin{
+    margin-top: 150px;
+}
+
 body{
     font: 400 14px Roboto, sans-serif;
     background: #f0f0f5;
     -webkit-font-smoothing: antialiased;
 }
 
-.margin{
-    margin-top: 100px;
-}
-
 input {
     font: 400 18px Roboto, sans-serif;
-}
-
-.color{
-    color: #008000;
-}
-
-.container{
-    border: 3px solid #77DD77;
-}
-
-a {
-    margin-bottom: 30px;
 }
 
 button{
@@ -35,10 +30,4 @@ form input{
     border: 1px solid #dcdce6;
     border-radius: 8px;
     padding: 0 24px;
-}
-
-.logo {
-    position: absolute;
-    margin-left: 100px;
-    margin-top: 200px;
 }

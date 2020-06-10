@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { ClientRoutes} from './client'
+import { ClientRoutes} from './client';
+import { ProblemRoutes} from './problem'
 
 export const routes: Routes = [
 
@@ -10,7 +11,8 @@ export const routes: Routes = [
         redirectTo: '/logon/client',
         pathMatch: 'full'
     },
-    ...ClientRoutes
+    ...ClientRoutes,
+    ...ProblemRoutes
 ];
 
 @NgModule({

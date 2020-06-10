@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 @Data
 public class ProblemNewDTO {
 
+	private Long id;
 	private String title;
 	private String description;
 	private Long client;

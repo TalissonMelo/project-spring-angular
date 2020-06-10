@@ -1,0 +1,1 @@
+export * from './view-problem.component'

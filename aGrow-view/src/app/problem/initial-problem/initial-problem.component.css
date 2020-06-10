@@ -1,0 +1,21 @@
+.profile-container{
+    width: 100%;
+    max-width: 1180px;
+    padding: 0 30px;
+    margin: 32px auto;
+}
+
+.img{
+    padding-top: 15px;
+}
+
+.margin{
+    margin-top: 100px;
+    font: 400 18px Roboto, sans-serif;
+    color: #008000;
+    text-align: justify;
+}
+
+.color{
+    color: #008000;
+}
