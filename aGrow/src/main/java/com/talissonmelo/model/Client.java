@@ -4,6 +4,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -20,8 +22,17 @@ public class Client {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	
+	@NotBlank(message = "Campo Nome e Obrigatório.")
 	private String name;
+	
+	@Email(message = "Digite um Email Valido")
+	@NotBlank(message = "Digite seu melhor Email.")
 	private String email;
+	
+	@NotBlank(message = "Telefone e Obrigatório.")
 	private String phone;
+	
+	@NotBlank(message = "Campo senha e Obrigatório.")
 	private String password;
 }

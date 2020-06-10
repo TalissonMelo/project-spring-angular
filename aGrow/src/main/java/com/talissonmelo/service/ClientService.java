@@ -9,6 +9,7 @@ import com.talissonmelo.model.Client;
 import com.talissonmelo.repositories.ClientRepository;
 import com.talissonmelo.service.exception.EntityNotFound;
 import com.talissonmelo.service.exception.ErrorAuthenticateException;
+import com.talissonmelo.service.exception.RuleException;
 
 @Service
 public class ClientService {
@@ -36,5 +37,13 @@ public class ClientService {
 	public Client findById(Long id) {
 		return repository.findById(id)
 				.orElseThrow(() -> new EntityNotFound("Cliente não encontrado"));
+	}
+
+	public void existEmail(String email) {
+		Boolean exist = repository.existsByEmail(email);
+		if (exist) {
+			throw new RuleException("Email já cadastrado.");
+		}
+		
 	}
 }
