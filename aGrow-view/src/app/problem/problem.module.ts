@@ -6,13 +6,15 @@ import { RouterModule} from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { InsertProblemComponent } from './insert-problem/insert-problem.component';
 import { InitialProblemComponent} from './initial-problem/initial-problem.component';
-import { ViewProblemComponent } from './view-problem/view-problem.component'
+import { ViewProblemComponent } from './view-problem/view-problem.component';
+import { AdminProblemComponent } from './admin-problem/admin-problem.component'
 
 @NgModule({
   declarations: [
     InsertProblemComponent, 
     InitialProblemComponent, 
-    ViewProblemComponent],
+    ViewProblemComponent,
+     AdminProblemComponent],
   imports: [
     CommonModule,
     RouterModule,

@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.talissonmelo.model.Client;
+import com.talissonmelo.model.dto.ClientDTO;
 import com.talissonmelo.model.dto.ClientLogonDTO;
 import com.talissonmelo.service.ClientService;
 import com.talissonmelo.service.exception.ErrorAuthenticateException;
@@ -38,7 +39,8 @@ public class ClientResource {
 	public ResponseEntity<?> authenticate(@RequestBody ClientLogonDTO objDTO) {
 		try {
 			Client client = service.authenticate(objDTO.getEmail(), objDTO.getPassword());
-			return ResponseEntity.ok().body(client);
+			ClientDTO clientDTO = service.toClientDTO(client);
+			return ResponseEntity.ok().body(clientDTO);
 		} catch (ErrorAuthenticateException e) {
 			return ResponseEntity.badRequest().body(e.getMessage());
 		}

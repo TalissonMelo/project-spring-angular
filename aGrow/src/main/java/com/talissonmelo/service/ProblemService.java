@@ -76,6 +76,7 @@ public class ProblemService {
 			ProblemViewDTO view = new ProblemViewDTO();
 			view.setTitle(problem.getTitle());
 			view.setDescription(problem.getDescription());
+			view.setInsertProblem(problem.getInsertProblem());
 			view.setName(problem.getClient().getName());
 			view.setEmail(problem.getClient().getEmail());
 			view.setPhone(problem.getClient().getPhone());

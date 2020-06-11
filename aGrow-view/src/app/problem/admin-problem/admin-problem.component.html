@@ -1,0 +1,52 @@
+<div class="margin">
+    <div class="container">
+        <div className="profile-container">
+            <header>
+                <div class="col-md-4">
+                    <img src="../../../assets/logo.png" alt="">
+                </div>
+                <div class="col-md-4">
+                    <h3 class="color"><span>Bem vindo, </span></h3>
+                    <h6 class="color"><span>Listagem de Todos Cadastros. </span></h6>
+                </div>
+                <div class="col-md-4">
+                    <a [routerLink]="['/logon/client']" class="btn btn-danger"> 
+                        <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>Sair
+                    </a>
+                    <a [routerLink]="['/view/problem']" class="btn btn-default">
+                        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> Visualizar
+                    </a>
+                    <a [routerLink]="['/insert/problem']" class="btn btn-success"> Cadastrar
+                        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                    </a>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Client</th>
+                                    <th scope="col">Solicitante</th>
+                                    <th scope="col">Contato</th>
+                                    <th scope="col">Title</th>
+                                    <th scope="col">Descrição</th>
+                                    <th scope="col">Data Publicação</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="table-active">
+                                    <th scope="row"></th>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </header>
+        </div>
+    </div>
+</div>

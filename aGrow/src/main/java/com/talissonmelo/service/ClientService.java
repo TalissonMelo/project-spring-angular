@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.talissonmelo.model.Client;
+import com.talissonmelo.model.dto.ClientDTO;
 import com.talissonmelo.repositories.ClientRepository;
 import com.talissonmelo.service.exception.EntityNotFound;
 import com.talissonmelo.service.exception.ErrorAuthenticateException;
@@ -45,5 +46,14 @@ public class ClientService {
 			throw new RuleException("Email já cadastrado.");
 		}
 		
+	}
+
+	public ClientDTO toClientDTO(Client client) {
+		ClientDTO clientDTO = new ClientDTO();
+		clientDTO.setName(client.getName());
+		clientDTO.setEmail(client.getEmail());
+		clientDTO.setPhone(client.getPhone());
+		clientDTO.setId(client.getId());
+		return clientDTO;
 	}
 }

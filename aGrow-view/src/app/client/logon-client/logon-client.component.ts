@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { EmailValidator } from '@angular/forms';
 
 @Component({
   selector: 'app-logon-client',
@@ -8,13 +9,20 @@ import { Router } from '@angular/router';
 })
 export class LogonClientComponent implements OnInit {
 
+  email: string;
   constructor(public router: Router) { }
 
   ngOnInit(): void {
   }
 
-  Logon(){
-    this.router.navigate(['/initial/problem']);
+  Logon() {
+    this.email = "email@gmail.com";
+
+    if (this.email === "email@gmail.co") {
+      this.router.navigate(['/initial/problem']);
+    } else {
+      this.router.navigate(['/admin/problem']);
+    }
   }
 
 }
