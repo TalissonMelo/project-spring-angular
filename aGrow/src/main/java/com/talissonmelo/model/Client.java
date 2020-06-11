@@ -7,6 +7,8 @@ import javax.persistence.Id;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -33,6 +35,7 @@ public class Client {
 	@NotBlank(message = "Telefone e Obrigatório.")
 	private String phone;
 	
+	@JsonIgnore
 	@NotBlank(message = "Campo senha e Obrigatório.")
 	private String password;
 }

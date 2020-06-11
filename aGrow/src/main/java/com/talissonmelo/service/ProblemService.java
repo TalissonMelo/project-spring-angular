@@ -1,5 +1,6 @@
 package com.talissonmelo.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +14,7 @@ import org.springframework.stereotype.Service;
 import com.talissonmelo.model.Client;
 import com.talissonmelo.model.Problem;
 import com.talissonmelo.model.dto.ProblemNewDTO;
+import com.talissonmelo.model.dto.ProblemViewDTO;
 import com.talissonmelo.repositories.ProblemRepository;
 import com.talissonmelo.service.exception.DataViolation;
 import com.talissonmelo.service.exception.EntityNotFound;
@@ -56,5 +58,31 @@ public class ProblemService {
 		}catch (DataIntegrityViolationException e) {
 			throw new DataViolation("Objeto persistido em outra tabela. Deleção Negada.");
 		}
+	}
+	
+	public List<Problem> findAllProblem(){
+		return repository.findAll();
+	}
+	
+	public List<ProblemViewDTO> FindAllProblemView(List<Problem> list){
+		List<ProblemViewDTO> view = toViewDTO(list);
+		return view;
+	}
+	
+	public List<ProblemViewDTO> toViewDTO(List<Problem> list) {
+		List<ProblemViewDTO> listView = new ArrayList<>();
+		
+		for(Problem problem: list) {
+			ProblemViewDTO view = new ProblemViewDTO();
+			view.setTitle(problem.getTitle());
+			view.setDescription(problem.getDescription());
+			view.setName(problem.getClient().getName());
+			view.setEmail(problem.getClient().getEmail());
+			view.setPhone(problem.getClient().getPhone());
+			
+			listView.add(view);
+		}
+		
+		return listView;
 	}
 }

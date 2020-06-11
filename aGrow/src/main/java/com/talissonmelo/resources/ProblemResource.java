@@ -18,6 +18,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import com.talissonmelo.model.Client;
 import com.talissonmelo.model.Problem;
 import com.talissonmelo.model.dto.ProblemNewDTO;
+import com.talissonmelo.model.dto.ProblemViewDTO;
 import com.talissonmelo.service.ClientService;
 import com.talissonmelo.service.ProblemService;
 
@@ -63,4 +64,10 @@ public class ProblemResource {
 		return ResponseEntity.noContent().build();
 	}
 
+	@GetMapping(value = "/admin")
+	public ResponseEntity<List<ProblemViewDTO>> findAllProblem(){
+		List<Problem> list = service.findAllProblem();
+		List<ProblemViewDTO> listView = service.FindAllProblemView(list);
+		return ResponseEntity.ok().body(listView);
+	}
 }
