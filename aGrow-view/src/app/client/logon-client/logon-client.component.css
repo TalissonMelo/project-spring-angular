@@ -8,6 +8,11 @@ body{
     margin-top: 150px;
 }
 
+
+.ng-invalid.ng-touched:not(form) {
+    border: 2px solid #008000;
+}
+
 input {
     font: 400 18px Roboto, sans-serif;
 }

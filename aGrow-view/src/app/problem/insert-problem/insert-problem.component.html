@@ -2,20 +2,28 @@
     <div class="container">
         <div className="logon-container">
             <section className="form">
-                <form>
+                <form #form="ngForm" (ngSubmit)="onSubmit(form)">
                     <div class="col-md-6">
                         <h3>Cadastrar Melhoria</h3>
                         <div class="form-group">
-                            <div class="form-group">
-                                <label for="title">Titulo</label><br>
-                                <textarea class="form-control" name="title" id="title"></textarea>
+                            <div class="valid" *ngIf="!title.valid && title.touched" class="alert alert-danger " role="alert">
+                                Título é Obrigatório.
                             </div>
                             <div class="form-group">
-                                <label for="descricao">Descrição</label><br>
-                                <textarea class="form-control" rows="3" name="descricao" id="descricao"></textarea>
+                                <label for="title">Título *</label><br>
+                                <input type="text" class="form-control" id="title" name="title" placeholder="Título *" ngModel required
+                                #title="ngModel">
+                            </div>
+                            <div class="valid" *ngIf="!description.valid && description.touched" class="alert alert-danger " role="alert">
+                                Descreve detalhadamente seu problema.
+                            </div>
+                            <div class="form-group">
+                                <label for="descricao">Descrição *</label><br>
+                                <textarea class="form-control" rows="3" name="description" id="description" placeholder="Descrição *" ngModel required
+                                #description="ngModel"></textarea>
                             </div>
                         </div>
-                        <input type="submit" class="btn btn-success" value="Cadastrar">
+                        <input type="submit" class="btn btn-success" value="Cadastrar"  [disabled]="!form.valid">
                         <a [routerLink]="['/initial/problem']" class="btn btn-default">
                             <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>Inicio
                         </a>

@@ -12,4 +12,8 @@ export class InsertProblemComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onSubmit(form: any){
+    console.log(form.value);
+
+  }
 }
