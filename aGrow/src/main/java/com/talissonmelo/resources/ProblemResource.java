@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -19,6 +20,7 @@ import com.talissonmelo.model.Client;
 import com.talissonmelo.model.Problem;
 import com.talissonmelo.model.dto.ProblemNewDTO;
 import com.talissonmelo.model.dto.ProblemViewDTO;
+import com.talissonmelo.model.dto.UpdateStatusDTO;
 import com.talissonmelo.service.ClientService;
 import com.talissonmelo.service.ProblemService;
 
@@ -69,5 +71,13 @@ public class ProblemResource {
 		List<Problem> list = service.findAllProblem();
 		List<ProblemViewDTO> listView = service.FindAllProblemView(list);
 		return ResponseEntity.ok().body(listView);
+	}
+	
+	@PutMapping(value = "/{id}")
+	public ResponseEntity<ProblemViewDTO> updateStatus(@PathVariable Long id, @RequestBody UpdateStatusDTO dto){
+		Problem problem = service.update(id, dto);
+		problem.setId(id);
+		ProblemViewDTO problemViewDTO = service.fromViewDTO(problem);
+		return ResponseEntity.ok().body(problemViewDTO);
 	}
 }

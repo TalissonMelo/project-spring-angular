@@ -15,6 +15,8 @@ import com.talissonmelo.model.Client;
 import com.talissonmelo.model.Problem;
 import com.talissonmelo.model.dto.ProblemNewDTO;
 import com.talissonmelo.model.dto.ProblemViewDTO;
+import com.talissonmelo.model.dto.UpdateStatusDTO;
+import com.talissonmelo.model.enums.ProblemStatus;
 import com.talissonmelo.repositories.ProblemRepository;
 import com.talissonmelo.service.exception.DataViolation;
 import com.talissonmelo.service.exception.EntityNotFound;
@@ -40,6 +42,7 @@ public class ProblemService {
 	
 	public Problem insert(ProblemNewDTO problemDTO) {
 		Problem problem = fromDTO(problemDTO);
+		problem.setStatus(ProblemStatus.ABERTO);
 		return repository.save(problem);
 	}
 	
@@ -74,16 +77,42 @@ public class ProblemService {
 		
 		for(Problem problem: list) {
 			ProblemViewDTO view = new ProblemViewDTO();
+			view.setId(problem.getId());
 			view.setTitle(problem.getTitle());
 			view.setDescription(problem.getDescription());
 			view.setInsertProblem(problem.getInsertProblem());
 			view.setName(problem.getClient().getName());
 			view.setEmail(problem.getClient().getEmail());
 			view.setPhone(problem.getClient().getPhone());
+			view.setStatus(problem.getStatus());
 			
 			listView.add(view);
 		}
 		
 		return listView;
+	}
+	
+	public Problem update(Long id ,UpdateStatusDTO dto) {
+		Problem entity = repository.getOne(id);
+		entity.setStatus(dto.getStatus());
+		return repository.save(entity);
+	}
+	
+	public Problem findById(Long id) {
+		return repository.findById(id)
+				.orElseThrow(() -> new EntityNotFound("Cadastro não encontrado"));
+	}
+
+	public ProblemViewDTO fromViewDTO(Problem problem) {
+		ProblemViewDTO problemViewDTO = new ProblemViewDTO();
+		problemViewDTO.setId(problem.getId());
+		problemViewDTO.setTitle(problem.getTitle());
+		problemViewDTO.setDescription(problem.getDescription());
+		problemViewDTO.setInsertProblem(problem.getInsertProblem());
+		problemViewDTO.setName(problem.getClient().getName());
+		problemViewDTO.setEmail(problem.getClient().getEmail());
+		problemViewDTO.setPhone(problem.getClient().getPhone());
+		problemViewDTO.setStatus(problem.getStatus());
+		return problemViewDTO;
 	}
 }

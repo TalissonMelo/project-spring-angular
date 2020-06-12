@@ -3,6 +3,8 @@ package com.talissonmelo.model;
 import java.time.LocalDateTime;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -12,6 +14,7 @@ import javax.persistence.ManyToOne;
 import org.hibernate.annotations.CreationTimestamp;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.talissonmelo.model.enums.ProblemStatus;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -38,4 +41,7 @@ public class Problem {
 	@ManyToOne
 	@JoinColumn(name = "client_id")
 	private Client client;
+	
+	@Enumerated(EnumType.STRING)
+	private ProblemStatus status;
 }
