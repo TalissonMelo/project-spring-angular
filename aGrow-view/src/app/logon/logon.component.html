@@ -1,0 +1,36 @@
+<div class="margin">
+    <div class="container">
+        <div className="logon-container">
+            <section className="form">
+                <form #logon="ngForm" (ngSubmit)="Logon(logon)">
+                    <div class="jumbotron">
+                        <p>O principal objetivo deste software é o de buscar a excelência no atendimento das principais questões ligadas ao agronegócio brasileiro, cadastre-se e descreva suas necessidades.</p>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="valid" *ngIf="!email.valid && email.touched">
+                            Email inválido.
+                        </div>
+                        <div class="form-group">
+                            <input type="email" class="form-control" id="email" ngModel name="email"
+                                placeholder="Email *" required #email>
+                        </div>
+                        <div class="valid" *ngIf="!password.valid && password.touched">
+                            Digite sua Senha.
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control" id="password" ngModel name="password"
+                                placeholder="Senha *" required #password>
+                        </div>
+                        <input type="submit" class="btn btn-success" value="Logar">
+                        <a [routerLink]="['/insert/client']" class="btn btn-default">
+                            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> Cadastrar
+                        </a>
+                    </div>
+                    <div class="col-md-6">
+                        <img class="logo" src="../../../assets/logo.png" alt="" />
+                    </div>
+                </form>
+            </section>
+        </div>
+    </div>
+</div>

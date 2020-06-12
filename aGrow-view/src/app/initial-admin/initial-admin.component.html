@@ -1,0 +1,60 @@
+<div class="margin">
+    <div class="container">
+        <div className="profile-container">
+            <header>
+                <div class="col-md-4">
+                    <img src="../../../assets/logo.png" alt="">
+                </div>
+                <div class="col-md-4">
+                    <h3 class="color"><span>Bem vindo, </span></h3>
+                    <h6 class="color"><span>Listagem de Todos Cadastros. </span></h6>
+                </div>
+                <div class="col-md-4">
+                    <a [routerLink]="['/']" class="btn btn-danger"> 
+                        <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>Sair
+                    </a>
+                    <a [routerLink]="['/view/problem']" class="btn btn-default">
+                        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> Visualizar
+                    </a>
+                    <a [routerLink]="['/register/problem']" class="btn btn-success"> Cadastrar
+                        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                    </a>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Cliente</th>
+                                    <th scope="col">Solicitante</th>
+                                    <th scope="col">Contato</th>
+                                    <th scope="col">Title</th>
+                                    <th scope="col">Descrição</th>
+                                    <th scope="col">Data Publicação</th>
+                                    <th scope="col">Status</th>
+                                    <th scope="col"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="table-active">
+                                    <th scope="row"></th>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>
+                                        <button title="Fazendo" class="btn btn-xs btn-warning" style="margin: 2px;">FAZENDO
+                                        </button>
+                                        <button title="Terminado" class="btn btn-xs btn-success" style="margin: 2px;">TERMINADO
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </header>
+        </div>
+    </div>
