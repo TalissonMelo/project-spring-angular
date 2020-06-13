@@ -10,14 +10,14 @@
                     <h6 class="color"><span>Listagem de Todos Cadastros. </span></h6>
                 </div>
                 <div class="col-md-4">
-                    <a (click)="logout()" class="btn btn-danger"> 
-                        <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>Sair
-                    </a>
                     <a [routerLink]="['/view/problem']" class="btn btn-default">
                         <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> Visualizar
                     </a>
                     <a [routerLink]="['/register/problem']" class="btn btn-success"> Cadastrar
                         <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                    </a>
+                    <a (click)="logout()" class="btn btn-danger"> 
+                        <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>Sair
                     </a>
                 </div>
                 <div class="row">
