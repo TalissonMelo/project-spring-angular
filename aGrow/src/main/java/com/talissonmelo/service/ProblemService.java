@@ -20,6 +20,7 @@ import com.talissonmelo.model.enums.ProblemStatus;
 import com.talissonmelo.repositories.ProblemRepository;
 import com.talissonmelo.service.exception.DataViolation;
 import com.talissonmelo.service.exception.EntityNotFound;
+import com.talissonmelo.service.exception.RuleException;
 
 @Service
 public class ProblemService {
@@ -55,7 +56,16 @@ public class ProblemService {
 	
 	public void delete(Long id) {
 		try {
-			repository.deleteById(id);
+			
+			Problem problem = findById(id);
+			
+			if(problem.getStatus() == ProblemStatus.ABERTO) {
+				repository.deleteById(id);
+			}else {
+				throw new RuleException("Não pode ser Deletado pois estamos solucionando.");
+			}
+			
+			
 		}catch (EmptyResultDataAccessException e) {
 			throw new EntityNotFound("ID : " + id + ", não encontrado.");
 		}catch (DataIntegrityViolationException e) {

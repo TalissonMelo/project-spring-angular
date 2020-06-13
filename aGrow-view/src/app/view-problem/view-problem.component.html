@@ -11,26 +11,27 @@
                             <th scope="col">Status</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody *ngFor="let problem of problems">
                         <tr class="table-active">
-                            <th scope="row"></th>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td>
-                                <button title="Deletar" class="btn btn-xs btn-danger" style="margin: 2px;">Deletar
+                            <th scope="row">{{ problem.title }}</th>
+                            <td>{{ problem.description }}</td>
+                            <td>{{ problem.insertProblem }}</td>
+                            <td>{{ problem.status }}</td>
+                            <td> <button title="Deletar" class="btn btn-xs btn-danger" style="margin: 2px;"
+                                    (click)="deleteById(problem.id)">Deletar
                                 </button>
+
                             </td>
                         </tr>
                     </tbody>
                 </table>
             </div>
-        </div>
-        <div class="col-md-12">
-            <br />
-            <a [routerLink]="['/initial']" class="btn btn-success">
-                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>Inicio
-            </a>
+            <div class="col-md-12">
+                <br />
+                <a (click)="initial()" class="btn btn-success">
+                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>Inicio
+                </a>
+            </div>
         </div>
     </div>
 </div>

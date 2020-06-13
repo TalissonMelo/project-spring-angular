@@ -6,11 +6,11 @@
                     <img src="../../../assets/logo.png" alt="">
                 </div>
                 <div class="col-md-4">
-                    <h3 class="color"><span>Bem vindo, </span></h3>
+                    <h3 class="color"><span>Bem vindo, {{ this.client() }} </span></h3>
                     <h6 class="color"><span>Listagem de Todos Cadastros. </span></h6>
                 </div>
                 <div class="col-md-4">
-                    <a [routerLink]="['/']" class="btn btn-danger"> 
+                    <a (click)="logout()" class="btn btn-danger"> 
                         <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>Sair
                     </a>
                     <a [routerLink]="['/view/problem']" class="btn btn-default">
@@ -32,22 +32,23 @@
                                     <th scope="col">Descrição</th>
                                     <th scope="col">Data Publicação</th>
                                     <th scope="col">Status</th>
-                                    <th scope="col"></th>
+                                    <th scope="col">Ações</th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody *ngFor="let problem of problems">
                                 <tr class="table-active">
-                                    <th scope="row"></th>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
+                                  <th scope="row">{{ problem.name }}</th>
+                                  <td>{{ problem.email }}</td>
+                                  <td>{{ problem.phone }}</td>
+                                  <td>{{ problem.title }}</td>
+                                  <td>{{ problem.description }}</td>
+                                  <td>{{ problem.insertProblem }}</td>
+                                  <td>{{ problem.status }}</td>
+
                                     <td>
-                                        <button title="Fazendo" class="btn btn-xs btn-warning" style="margin: 2px;">FAZENDO
+                                        <button title="Fazendo" class="btn btn-xs btn-warning" style="margin: 2px;" (click)="making(problem.id)">FAZENDO
                                         </button>
-                                        <button title="Terminado" class="btn btn-xs btn-success" style="margin: 2px;">TERMINADO
+                                        <button title="Terminado" class="btn btn-xs btn-success" style="margin: 2px;" (click)="finish(problem.id)">TERMINADO
                                         </button>
                                     </td>
                                 </tr>

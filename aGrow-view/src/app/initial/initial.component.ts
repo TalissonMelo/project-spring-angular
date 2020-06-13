@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import LocalStorageService from 'src/config/service';
 
 @Component({
   selector: 'app-initial',
@@ -7,9 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InitialComponent implements OnInit {
 
-  constructor() { }
+  constructor(public router: Router) { }
 
   ngOnInit(): void {
   }
 
+  client() {
+    const emailUser = LocalStorageService.getlocalStorage('_client')
+    return emailUser.name;
+  }
+
+  logout() {
+    LocalStorageService.removeUserAuthenticate();
+    this.router.navigate(['']);
+  }
 }

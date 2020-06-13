@@ -10,6 +10,7 @@ import { InitialAdminComponent } from './initial-admin/initial-admin.component';
 import { RegisterProblemComponent } from './register-problem/register-problem.component';
 import { ViewProblemComponent } from './view-problem/view-problem.component';
 import { routing } from './app.routing';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -24,9 +25,11 @@ import { routing } from './app.routing';
   imports: [
     BrowserModule,
     FormsModule,
+    HttpClientModule,
     routing
   ],
-  providers: [],
+  providers: [
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

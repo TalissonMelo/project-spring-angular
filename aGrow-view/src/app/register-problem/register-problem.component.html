@@ -24,7 +24,7 @@
                             </div>
                         </div>
                         <input type="submit" class="btn btn-success" value="Cadastrar"  [disabled]="!form.valid">
-                        <a [routerLink]="['/initial']" class="btn btn-default">
+                        <a (click)="initial()" class="btn btn-default">
                             <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>Inicio
                         </a>
                     </div>

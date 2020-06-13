@@ -2,12 +2,12 @@
     <div class="container">
         <div class="col-md-12">
             <header>
-                <div class="col-md-6">
+                <div class="col-md-6 text-center">
                     <img src="../../../assets/logo.png" alt="">
 
-                    <h3 class="color"><span>Bem vindo, </span></h3>
+                    <h3 class="color"><span>Bem vindo, {{ this.client() }}</span></h3>
 
-                    <div class="text">
+                    <div class="text"  class="jumbotron">
                         <p>O principal objetivo deste software é o de buscar a excelência no atendimento das principais
                             questões ligadas ao agronegócio brasileiro, cadastre-se e descreva suas necessidades.</p>
                     </div>
@@ -20,7 +20,7 @@
                     <a [routerLink]="['/register/problem']" class="btn btn-success"> Cadastrar
                         <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
                     </a>
-                    <a [routerLink]="['/']" class="btn btn-danger">
+                    <a class="btn btn-danger" (click)="logout()">
                         <span class="glyphicon glyphicon-log-out" aria-hidden="true"> </span> Sair
                     </a>
                     </div>
