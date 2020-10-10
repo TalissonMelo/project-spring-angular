@@ -21,12 +21,12 @@ export class LogonComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  Logon(logon : any) {   
+  Logon(logon : any):void {   
     this.clientLogon = logon.value;
     this.login(this.clientLogon);
   }
 
-  login(client: any){
+  login(client: any): void{
     this.http.post(`${API_CONFIG.baseUrl}/client/logon`, client)
       .subscribe(response => {
 

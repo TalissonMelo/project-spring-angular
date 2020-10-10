@@ -19,10 +19,7 @@ export class RegisterComponent implements OnInit {
 
   constructor(public router: Router, public http: HttpClient) { }
 
-  ngOnInit() {
-  }
-
-  onSubmit(form: any) {
+  onSubmit(form: any):void {
     this.client.name = form.value.name;
     this.client.email = form.value.email;
     this.client.phone = form.value.phone;
@@ -36,7 +33,7 @@ export class RegisterComponent implements OnInit {
 
   }
 
-  insert(client: any) {
+  insert(client: any): void {
     this.http.post(`${API_CONFIG.baseUrl}/client`, client)
       .subscribe(response => {
         window.alert("Cadastrado com Sucesso.");
